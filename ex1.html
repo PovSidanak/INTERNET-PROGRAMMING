@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab</title>
+    <script src="https://cdn.tailwindcss.com/3.2.4"></script>
+    <style>
+        .active{
+            background-color: #fff;
+        }
+        .inactive{
+            background-color: #dbe2ec;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex w-screen h-screen justify-center items-center">
+        <div class="w-[400px] h-[520px] border-4 border-black bg-[#f1f5f8]">
+            <div class="w-full h-full pt-10 pl-2 pr-2 pb-8 flex flex-col">
+                <div class="flex flex-col justify-center items-center mb-8">
+                    <h1 class="font-bold text-md text-[#162542]">ABOUT</h1>
+                    <p class="text-[9px] text-[#a2b1b6]">Lorem ipsum dolor sit amet consectetur adipiscing elit. Earum, aperiam!</p>
+                </div>
+                <div class="w-full mb-5">
+                    <img src="ex1.png" class="w-full aspect-[2] rounded-lg">
+                </div>
+                <div class="w-full h-full bg-[#fff] flex flex-col rounded-lg">
+                    <div class="flex bg-red-100 h-[40px] rounded-t-lg">
+                        <div id="span" class="flex-1 cursor-pointer flex justify-center items-center rounded-tl-lg active">
+                            <span class="text-[12px] text-[#66616a]">History</span>
+                        </div>
+                        <div id="span" class="flex-1 cursor-pointer flex justify-center items-center hover:bg-[#c0c0c0] inactive">
+                            <span class="text-[12px] text-[#66616a]">Vision</span>
+                        </div>
+                        <div id="span" class="active flex-1 cursor-pointer flex justify-center items-center rounded-tr-lg hover:bg-[#c0c0c0] inactive">
+                            <span class="text-[12px] text-[#66616a]">Goals</span>
+                        </div>
+                    </div>
+                    <div class="h-full p-2">
+                        <span id="title" class="text-green-100 font-bold text-[12px] text-[#434a54]"></span>
+                        <p id="description" class="text-[9px] text-[#9ea6aa]"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    const boxs = document.querySelectorAll('#span')
+    var title = document.getElementById('title')
+    var description = document.getElementById('description')
+    
+    title.innerHTML = "History"
+    description.innerHTML = "I'm baby wolf pickled schilz try-hard normcore marfa man bun mumblecore vice pop-up XOXO lomo kombucha glossier bicycle rights. Umami kinfolk salvia jean shorts offal venmo. Knausgaard tilde try-hard, woke fixie banjo man bun. Small batch tumeric mustache tbh wayfarers 8-bit shaman chartreuse tacos. Viral direct trade hoodie ugh chambray. craft beer pork belly flannel tacos single-origin coffee art party migas plaid pop-up"
+
+    boxs.forEach( (box) => {
+        box.addEventListener('click', () => {
+            
+            if ( box.querySelector('span').innerHTML === "History" ){
+                
+                boxs.forEach ( (cbox) => {
+                    if ( cbox.querySelector('span').innerHTML === box.querySelector('span').innerHTML  ){
+                        cbox.classList.add('active')
+                        cbox.classList.remove('inactive')
+                    }else{
+                        cbox.classList.add('inactive')
+                    }
+                }  )
+
+                title.innerHTML = "History"
+                description.innerHTML = "I'm baby wolf pickled schilz try-hard normcore marfa man bun mumblecore vice pop-up XOXO lomo kombucha glossier bicycle rights. Umami kinfolk salvia jean shorts offal venmo. Knausgaard tilde try-hard, woke fixie banjo man bun. Small batch tumeric mustache tbh wayfarers 8-bit shaman chartreuse tacos. Viral direct trade hoodie ugh chambray. craft beer pork belly flannel tacos single-origin coffee art party migas plaid pop-up"
+            }
+            else if ( box.querySelector('span').innerHTML === "Vision" ){
+
+                boxs.forEach ( (cbox) => {
+                    if ( cbox.querySelector('span').innerHTML === box.querySelector('span').innerHTML  ){
+                        cbox.classList.add('active')
+                        cbox.classList.remove('inactive')
+                    }else{
+                        cbox.classList.add('inactive')
+                    }
+                }  )
+
+                title.innerHTML = "Vision"
+                description.innerHTML = "Man bun PBR&B keytar copper mug prism, hell of helvetica. Synth crucifix offal deep v hella buodiesel. Church-key listicle polaroid put a bird on it chillwave palo santo enamel pin, tattoed meggins franzen la croix cray."
+            }
+            else if ( box.querySelector('span').innerHTML === "Goals" ){
+
+                boxs.forEach ( (cbox) => {
+                    if ( cbox.querySelector('span').innerHTML === box.querySelector('span').innerHTML  ){
+                        cbox.classList.add('active')
+                        cbox.classList.remove('inactive')
+                    }else{
+                        cbox.classList.add('inactive')
+                    }
+                }  )
+
+                title.innerHTML = "Goals"
+                description.innerHTML = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione earum voluptate vel vero reiciendis reprehenderit impedit incidunt, quidem quas at velit qui, laborum perspiciatis debitis distinctio nostrum animi est atque?"
+            }
+
+        })
+    } )
+
+</script>
+
+</html>

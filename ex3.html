@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <script src="https://cdn.tailwindcss.com/3.2.4"></script>
+</head>
+<body>
+    <div class="w-[100vw] h-[100vh] flex items-center justify-center">
+        <div class="gap-4 w-[330px] h-[450px] border-4 border-[#060606] flex items-center justify-center flex-col">
+            <h1 class="text-[36px] text-[#102a42]">Counter</h1>
+            <h1 id="label" class="text-[48px] text-[#008000]">0</h1>
+            <div class="flex gap-5">
+                <button id="decrease" class="border-2 border-[#363637] rounded-sm pl-1 pr-1 text-[#574f66]">DECREASE</button>
+                <button id="reset" class="border-2 border-[#363637] rounded-sm pl-1 pr-1 text-[#574f66]">RESET</button>
+                <button id="increase" class="border-2 border-[#363637] rounded-sm pl-1 pr-1 text-[#574f66]">INCREASE</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    class Counter {
+        
+        constructor(value){
+            this.number = Number(value)
+        }
+
+        decrease(){
+            this.number -= 1
+            return this.number
+        }
+
+        increase(){
+            this.number = this.number + 1
+            return this.number
+        }
+
+        reset(){
+            this.number = 0
+            return this.number
+        }
+
+
+    }
+
+    const decrease = document.getElementById('decrease')
+    const increase = document.getElementById('increase')
+    const reset = document.getElementById('reset')
+    var label = document.getElementById('label')
+
+    increase.onclick = function () {
+        value = label.innerHTML;
+        let counter = new Counter(value)
+        label.innerHTML = counter.increase()
+    }
+
+    decrease.onclick = function () {
+        value = label.innerHTML;
+        let counter = new Counter(value)
+        if ( Number(value) !== 0 )
+            label.innerHTML = counter.decrease()
+    }
+
+    reset.onclick = function () {
+        value = label.innerHTML;
+        let counter = new Counter(value)
+        label.innerHTML = counter.reset()
+    }
+
+</script>
+
+</html>
